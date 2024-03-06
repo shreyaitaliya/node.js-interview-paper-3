@@ -1,0 +1,23 @@
+<script>
+
+    // 3. Write a JavaScript program to find which number is greter in 3 numbers using ladder if else.(return with parameter function). 5 marks
+
+    let a = parseInt(prompt("Enter A number :- "));
+    let b = parseInt(prompt("Enter B number :- "));
+    let c = parseInt(prompt("Enter C number :- "));
+
+    if (a == b || b == c || c == a) {
+        document.write('all are same');
+    } else {
+        if (a > b) {
+            document.write('a is big');
+        }
+        else if (b > c) {
+            document.write('b is big');
+        }
+        else {
+            document.write('c is big');
+        }
+    }
+
+</script>

@@ -1,0 +1,94 @@
+<style>
+    body {
+        text-align: center;
+        background: #FF7373;
+        color: #fff;
+        font-family: 'Roboto Mono', monospace;
+    }
+
+    h1 {
+        font-size: 52px;
+        margin-bottom: 40px;
+    }
+
+    #timer {
+        font-size: 60px;
+        margin-bottom: 20px;
+    }
+
+    button {
+        padding: 10px 30px;
+        background: none;
+        border: 1px solid #fff;
+        color: #fff;
+        border-radius: 8px;
+        font-size: 16px;
+        margin: 0 5px;
+        outline: none;
+        cursor: pointer;
+    }
+
+    button:hover {
+        border: 1px solid #FF7373;
+        color: #FF7373;
+        background: #fff;
+    }
+</style>
+
+
+<h1>VANILLA JAVASCRIPT STOPWATCH</h1>
+<div id="timer">00:00</div>
+<button id="start">Start</button>
+<button id="reset">Reset</button>
+<button id="stop">stop</button>
+
+<script>
+
+    let watch = (function () {
+        let timer = document.getElementById("timer");
+        let stop = document.getElementById("stop");
+        let reset = document.getElementById("reset");
+        let time = "00:00"
+        let seconds = 0;
+        let minutes = 0;
+        let t;
+
+        timer.textContent = time;
+
+        const buildTimer = () => {
+            seconds++;
+            if (seconds >= 60) {
+                seconds = 0;
+                minutes++;
+                if (minutes >= 60) {
+                    minutes = 0;
+                    seconds = 0;
+                }
+            }
+            timer.textContent = (minutes < 10 ? "0" + minutes.toString() : minutes) + ":" + (seconds < 10 ? "0" + seconds.toString() : seconds);
+        }
+        const stopTimer = () => {
+            stop.addEventListener("click", function () {
+                clearTimeout(t);
+            })
+        }
+        const startTimer = () => {
+            start.addEventListener("click", function () {
+                clearTimeout(t);
+                t = setInterval(buildTimer, 1000);
+            });
+        }
+        const resetTimer = () => {
+            reset.addEventListener("click", function () {
+                timer.textContent = time;
+                seconds = 0; minutes = 0;
+            });
+        }
+        return {
+            start: startTimer(),
+            stop: stopTimer(),
+            reset: resetTimer()
+        };
+    })()
+
+</script>

@@ -1,0 +1,21 @@
+<script>
+
+    //     5.array ascending  order sort using for loop.(5 marks)
+    // let arr = [10, 2, 5, 18, 8];
+    // below output
+    //     ans = [2, 5, 8, 10, 18]
+
+    arr = [10, 2, 5, 18, 8];
+
+    for (i = 0; i < arr.length; i++) {
+        for (j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                let c = arr[i];
+                arr[i] = arr[j];
+                arr[j] = c;
+            }
+        }
+    }
+    document.write(arr);
+
+</script>

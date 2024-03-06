@@ -1,0 +1,22 @@
+<script>
+
+    // 4. insert element in array position wise.(using for loop) (5 marks)
+    // let arr = [10,20,30,40,50];
+    // pos = 26
+    // value = 25
+
+    // below output
+    // ans = [10,20,25,30,40,50]
+
+    let arr = [10, 20, 30, 40, 50]
+
+    let pos = parseInt(prompt("Enter change position :- "));
+    let value = parseInt(prompt("Enter change add value :- "));
+
+    for (i = arr.length; i > pos; i--) {
+        arr[i] = arr[i - 1];
+    }
+    arr[pos] = value;
+    document.write(arr);
+
+</script>
